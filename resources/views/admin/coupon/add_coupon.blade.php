@@ -36,7 +36,6 @@
                                 <div class="form-group">
                                     <label for="exampleInputEmail1">Chức năng mã</label>
                                     <select class="form-control input-sm m-bot15" name="coupon_condition">
-                                    
                                         <option value="0">------- Chọn --------</option>
                                         <option value="1">Giảm theo %</option>
                                         <option value="2">Giảm theo tiền</option>

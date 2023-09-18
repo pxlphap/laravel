@@ -9,8 +9,40 @@
                 <div class="productinfo text-center">
                     <img src="{{URL::to('public/upload/product/'.$item->product_image)}}" alt="" />
                     <h2>{{number_format($item->product_price)." đ"}}</h2>
-                    <p><a href="{{URL::to('/chi-tiet-san-pham/'.$item->product_id)}}">{{$item->product_name}}</a></p>
-                    <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Thêm vào giỏ hàng</a>
+                    <h3><a href="{{URL::to('/chi-tiet-san-pham/'.$item->product_id)}}">{{$item->product_name}}</a></h3>
+                    <form action="{{URL::to('/save-cart')}}" method="POST">
+                        {{ csrf_field() }}
+                        <span style="display: none;">
+                            <span>{{number_format($item->product_price).' VND'}}</span>
+                        </span>
+                        <span class="soluong" style="display: none;">
+                            <label>Số lượng:</label>
+                            <input style="display: none;" name="productID" type="hidden" value="{{ $item->product_id }}"/>
+                            <input style="display: none;" name="quanlity" type="number" value="1" min="1"/>
+
+                        </span>
+                        <button type="submit" class="btn btn-fefault cart add-to-cart-button">
+                            <i class="fa fa-shopping-cart"></i>
+                            Thêm vào giỏ hàng
+                        </button>
+                        <script>
+                            $(document).ready(function () {
+                                $('.add-to-cart-button').click(function () {
+                                    var productId = $(this).data('product-id');
+                                    var quantity = $(this).data('quantity');
+
+                                    $.ajax({
+                                        type: "POST",
+                                        url: "/save-cart",
+                                        data: {productID: productId, quanlity: quantity},
+                                        success: function (response) {
+                                            alert(response.message);
+                                        }
+                                    });
+                                });
+                            });
+                        </script>
+                    </form>
                 </div>
             </div>
         </div>
@@ -42,7 +74,7 @@
         </div>
 
         <div class="tab-pane fade" id="blazers" >
-           <div class="col-sm-3">
+         <div class="col-sm-3">
             <div class="product-image-wrapper">
                 <div class="single-products">
                     <div class="productinfo text-center">
@@ -97,7 +129,7 @@
     </div>
 
     <div class="tab-pane fade" id="sunglass" >
-     <div class="col-sm-3">
+       <div class="col-sm-3">
         <div class="product-image-wrapper">
             <div class="single-products">
                 <div class="productinfo text-center">
@@ -152,7 +184,7 @@
 </div>
 
 <div class="tab-pane fade" id="kids" >
- <div class="col-sm-3">
+   <div class="col-sm-3">
     <div class="product-image-wrapper">
         <div class="single-products">
             <div class="productinfo text-center">
@@ -207,7 +239,7 @@
 </div>
 
 <div class="tab-pane fade" id="poloshirt" >
- <div class="col-sm-3">
+   <div class="col-sm-3">
     <div class="product-image-wrapper">
         <div class="single-products">
             <div class="productinfo text-center">

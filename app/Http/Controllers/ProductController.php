@@ -11,14 +11,6 @@ session_start();
 
 class ProductController extends Controller
 {
-    public function AuthLogin(){
-        $admin_id = Session::get('admin_id');
-        if($admin_id){
-            return Redirect::to('dashboard');
-        }else{
-            return Redirect::to('login')->send();
-        }
-    }
     public function add_product(){
         $cate_product =  DB::table('tbl_category_product')->orderby('category_id','desc')->get();
         $brand_product =  DB::table('tbl_brand')->orderby('brand_id','desc')->get();
@@ -35,7 +27,7 @@ class ProductController extends Controller
 
         return view('admin.dashboard', ['admin.all_product' => $manager_product]);
     }
-
+   
     public function save_product(Request $request){
         $data = array();
         $data['product_name'] = $request->product_name;
@@ -120,7 +112,7 @@ class ProductController extends Controller
         }
     }
     public function chi_tiet_san_pham($product_id){
-         $category = DB::table('tbl_category_product')
+        $category = DB::table('tbl_category_product')
             ->where('category_status', '1')
             ->orderBy('category_id', 'desc')
             ->get();
@@ -133,6 +125,15 @@ class ProductController extends Controller
         ->join('tbl_category_product', 'tbl_category_product.category_id', '=', 'tbl_product.category_id')
         ->join('tbl_brand', 'tbl_brand.brand_id', '=', 'tbl_product.brand_id') 
         ->where('tbl_product.product_id', $product_id)->get();
-        return view('pages.product.detail-product', compact('category', 'brand', 'detail_product'));
+         foreach ($detail_product as $key => $value) {
+            $category_id = $value->category_id;
+        }
+         $related_product = DB::table('tbl_product')
+            ->join('tbl_category_product', 'tbl_category_product.category_id', '=', 'tbl_product.category_id')
+            ->join('tbl_brand', 'tbl_brand.brand_id', '=', 'tbl_product.brand_id')
+            ->where('tbl_product.category_id', $category_id)->whereNotIn('tbl_product.product_id',[$product_id])->get();
+
+        return view('pages.product.detail-product', compact('category', 'brand', 'detail_product', 'related_product'));
     }
+
 }

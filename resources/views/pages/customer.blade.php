@@ -1,14 +1,19 @@
 @extends('layout')
 @section('content')
+
+
 <section id="cart_items">
-	<div class="breadcrumbs">
-		<ol class="breadcrumb">
-			<li><a href="{{URL::to('/')}}">Home</a></li>
-			<li class="active">Giỏ hàng của bạn</li>
-		</ol>
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-12">
+				<h2 class="title text-center">Thông tin khách hàng</h2>
+				<p>Họ tên: {{ $customerName }}</p>
+				<p>Email: {{ $customerEmail }}</p>
+				<p>Số điện thoại: {{ $customerPhone }}</p>
+			</div>
+		</div>
 	</div>
-
-
+	<h2 class="title" style="margin-top: 50px;">Giỏ hàng của bạn</h2>
 	<div class="table-responsive cart_info">
 		<table class="table table-condensed">
 			<thead>
@@ -43,7 +48,7 @@
 							<div class="cart_quantity_button">
 								<input type="hidden" name="rowIDChangeQty" value="{{$cart_item->rowId}}">
 								<input class="cart_quantity_input" type="number" name="quantity_change" value="{{$cart_item->qty}}" size="2">
-								<input type="submit" value="Cập nhật" class="submitQty btn btn-default" style="margin-left: 10px;">
+								<input type="submit" value="Cập nhật" class="submitQty">
 							</div>
 						</form>
 					</td>
@@ -64,33 +69,5 @@
 			</tbody>
 		</table>
 	</div>
-</section> <!--/#cart_items-->
-<section id="do_action">
-	<div class="row">
-		<div class="col-sm-12">
-			<div class="total_area" >
-				<ul style="padding-left: 20px;">
-					<li>Tổng tiền sản phẩm <span>{{ Cart::subtotal(0) . " VND" }}</span></li>
-					<li>Thuế (10%)  <span>{{ Cart::tax(0) . " VND" }}</span></li>
-					<li>Phí vận chuyển <span>Miễn phí</span></li>
-					<li>Tổng tiền thanh toán <span>{{ Cart::total(0) . " VND" }}</span></li>
-				</ul>
-				<?php
-				$customer_id = Session::get('customer_id');
-
-				if($customer_id != NULL && Cart::count() == 0) {
-					?>
-					<a class="btn btn-default check_out" onclick="return alert('Bạn chưa có gì trong giỏ hàng, vui lòng thêm một sản phẩm')" href="#">Thanh toán</a>
-				<?php }
-				elseif($customer_id != NULL && Cart::count() != 0){?>
-					<a class="btn btn-default check_out" href="{{URL::to('/checkout/'.$customer_id)}}">Thanh toán</a>
-				<?php }  else { ?>
-					<a class="btn btn-default check_out" href="{{URL::to('/login-checkout')}}">Thanh toán</a>
-				<?php } ?>
-
-			</div>
-		</div>
-	</div>
-</section><!--/#do_action-->
-
+</section>
 @endsection

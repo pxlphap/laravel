@@ -7,23 +7,17 @@
 		</div>
 		<div class="row w3-res-tb">
 			<div class="col-sm-5 m-b-xs">
-				<select class="input-sm form-control w-sm inline v-middle">
-					<option value="0">Bulk action</option>
-					<option value="1">Delete selected</option>
-					<option value="2">Bulk edit</option>
-					<option value="3">Export</option>
-				</select>
-				<button class="btn btn-sm btn-default">Apply</button>                
+				
 			</div>
 			<div class="col-sm-4">
 			</div>
 			<div class="col-sm-3">
-				<div class="input-group">
-					<input type="text" class="input-sm form-control" placeholder="Search">
-					<span class="input-group-btn">
-						<button class="btn btn-sm btn-default" type="button">Go!</button>
-					</span>
-				</div>
+				<form action="{{URL::to('/search-product')}}" method="POST" class="input-group">
+					{{ csrf_field() }}
+					<input type="text" class="input-sm form-control" placeholder="Search" name="search_content">
+					<input type="submit" class="btn btn-default" value="Go!" name="search">
+				</form>
+
 			</div>
 		</div>
 		<div class="table-responsive">
@@ -37,11 +31,6 @@
 			<table class="table table-striped b-t b-light">
 				<thead>
 					<tr>
-						<th style="width:20px;">
-							<label class="i-checks m-b-none">
-								<input type="checkbox"><i></i>
-							</label>
-						</th>
 						<th>Tên Sản Phẩm</th>
 						<th>Giá</th>
 						<th>Mô tả</th>
@@ -56,22 +45,22 @@
 				<tbody>
 					@foreach($all_product as $key => $item)
 					<tr>
-						<td><label class="i-checks m-b-none"><input type="checkbox" name="post[]"><i></i></label></td>
 						<td>{{ $item->product_name }}</td>
 						<td>{{ $item->product_price }}</td>
-						<td>{{ $item->product_desc}}</td>
-						<td>{{ $item->product_content}}</td>
-						<td>{{ $item->category_name}}</td>
-						<td>{{ $item->brand_name}}</td>
+						<td>{{ $item->product_desc }}</td>
+						<td>{{ $item->product_content }}</td>
+						<td>{{ $item->category_name }}</td>
+						<td>{{ $item->brand_name }}</td>
 						<td><img width="150px" src="public/upload/product/{{$item->product_image}}" alt=""></td>
-						<td><span class="text-ellipsis">
-							<?php if ($item->product_status == 0): ?>
-								<a href="{{ URL::to('/active-product/'.$item->product_id) }}">Đang ẩn</a>
-							<?php else: ?>
-								<a href="{{ URL::to('/deactive-product/'.$item->product_id) }}">Đang hiển thị</a>
-							<?php endif; ?>
-
-						</span></td>
+						<td>
+							<span class="text-ellipsis">
+								<?php if ($item->product_status == 0): ?>
+									<a href="{{ URL::to('/active-product/'.$item->product_id) }}">Đang ẩn</a>
+								<?php else: ?>
+									<a href="{{ URL::to('/deactive-product/'.$item->product_id) }}">Đang hiển thị</a>
+								<?php endif; ?>
+							</span>
+						</td>
 						<td>
 							<a href="{{URL::to('/edit-product/'.$item->product_id)}}" class="active" ui-toggle-class="">
 								<i class="fa fa-check text-success text-active"></i>
@@ -82,7 +71,6 @@
 						</td>
 					</tr>
 					@endforeach
-
 				</tbody>
 			</table>
 		</div>

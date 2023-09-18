@@ -1,4 +1,4 @@
-@extends('admin_layout')
+@extends('admin.dashboard')
 @section('admin_content')
 <div class="table-agile-info">
   <div class="panel panel-default">
@@ -6,42 +6,31 @@
       LIỆT KÊ ĐƠN HÀNG
     </div>
     <?php
-      $message = Session::get('message');
-      if($message) {
-        echo "<span class='text-alert'>".$message."</span>";
-        Session::put('message',null);
-      }
+    $message = Session::get('message');
+    if($message) {
+      echo "<span class='text-alert'>".$message."</span>";
+      Session::put('message',null);
+    }
     ?>
     <div class="row w3-res-tb">
       <div class="col-sm-5 m-b-xs">
-        <select class="input-sm form-control w-sm inline v-middle">
-          <option value="0">Bulk action</option>
-          <option value="1">Delete selected</option>
-          <option value="2">Bulk edit</option>
-          <option value="3">Export</option>
-        </select>
-        <button class="btn btn-sm btn-default">Apply</button>                
+
       </div>
       <div class="col-sm-4">
       </div>
       <div class="col-sm-3">
-        <div class="input-group">
-          <input type="text" class="input-sm form-control" placeholder="Search">
-          <span class="input-group-btn">
-            <button class="btn btn-sm btn-default" type="button">Go!</button>
-          </span>
-        </div>
+        <form action="{{URL::to('/search-order')}}" method="POST" class="input-group">
+          {{ csrf_field() }}
+          <input type="text" class="input-sm form-control" placeholder="Search" name="search_content">
+          <input type="submit" class="btn btn-default" value="Go!" name="search">
+        </form>
       </div>
     </div>
     <div class="table-responsive">
       <table class="table table-striped b-t b-light">
         <thead>
           <tr>
-            <th style="width:20px;">
-              <label class="i-checks m-b-none">
-                <input type="checkbox"><i></i>
-              </label>
-            </th>
+            <th>Mã đơn</th>
             <th>Tên người đặt</th>
             <th>Giá trị đơn hàng</th>
             <th>Trạng thái đơn hàng</th>
@@ -51,7 +40,7 @@
         <tbody>
           @foreach($all_order as $key =>$order)
           <tr>
-            <td><label class="i-checks m-b-none"><input type="checkbox" name="post[]"><i></i></label></td>
+            <td>{{ $order->order_id}}</td>
             <td>{{ $order->customer_name}}</td>
             <td>{{ $order->order_total}}</td>
             <td>{{ $order->order_status}}</td>
@@ -72,7 +61,7 @@
     </div>
     <footer class="panel-footer">
       <div class="row">
-        
+
         <div class="col-sm-5 text-center">
           <small class="text-muted inline m-t-sm m-b-sm">showing 20-30 of 50 items</small>
         </div>

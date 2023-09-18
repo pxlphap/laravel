@@ -12,9 +12,20 @@ use App\Models\Coupon;
 session_start();
 class CartController extends Controller
 {
-    //
+    public function save_cart_not_next_page(Request $request) {
+        $productId = $request->productID;
+        $quanlity = $request->quanlity;
+        $product = DB::table('tbl_product')->where('product_id', $productId)->first();
+        $data['id'] = $productId;
+        $data['qty'] = $quanlity;
+        $data['name'] = $product->product_name;
+        $data['price'] = $product->product_price;
+        $data['options']['image'] = $product->product_image;
+        Cart::add($data);
+        return response()->json(['message' => 'Sản phẩm đã được thêm vào giỏ hàng']);
+    }
+
     public function save_cart(Request $request) {
-        // Session::flush();
         $productId = $request->productID;
         $quanlity = $request->quanlity;
         $product = DB::table('tbl_product')->where('product_id',$productId)->first();
@@ -22,10 +33,9 @@ class CartController extends Controller
         $data['qty'] = $quanlity;
         $data['name'] = $product->product_name;
         $data['price'] = $product->product_price;
-        $data['weight'] = $product->product_price;//fake
         $data['options']['image'] = $product->product_image;
         Cart::add($data);
-        return Redirect::to('view-cart');
+        return back();
     }
     public function view_cart(Request $request) {
         $meta_title = "Thông tin giỏ hàng";
@@ -35,8 +45,8 @@ class CartController extends Controller
         $image_og = "";
         
         $cate_product = DB::table('tbl_category_product')->where('category_status','1')->orderby('category_id','desc')->get();
-        $branch_product = DB::table('tbl_branch_product')->where('branch_status','1')->orderby('branch_id','desc')->get();
-        return view('pages.cart.view_cart')->with('category_product',$cate_product)->with('branch_product',$branch_product)
+        $brand_product = DB::table('tbl_brand')->where('brand_status','1')->orderby('brand_id','desc')->get();
+        return view('pages.cart.view_cart')->with('category',$cate_product)->with('brand',$brand_product)
         ->with('meta_title',$meta_title)
         ->with('meta_desc',$meta_desc)
         ->with('meta_keywords',$meta_keywords)
@@ -92,7 +102,6 @@ class CartController extends Controller
         Session::save();
     }
     public function gio_hang(Request $request) {
-        // Session::flush();
         $meta_title = "Thông tin giỏ hàng";
         $meta_desc = "Trang Thông tin giỏ hàng của bạn";
         $meta_keywords = "giỏ hàng xwatch247, xwatch247 cart";
@@ -100,8 +109,8 @@ class CartController extends Controller
         $image_og = "";
         
         $cate_product = DB::table('tbl_category_product')->where('category_status','1')->orderby('category_id','desc')->get();
-        $branch_product = DB::table('tbl_branch_product')->where('branch_status','1')->orderby('branch_id','desc')->get();
-        return view('pages.cart.view_cart_ajax')->with('category_product',$cate_product)->with('branch_product',$branch_product)
+        $brand_product = DB::table('tbl_brand')->where('brand_status','1')->orderby('brand_id','desc')->get();
+        return view('pages.cart.view_cart_ajax')->with('category_product',$cate_product)->with('brand_product',$brand_product)
         ->with('meta_title',$meta_title)
         ->with('meta_desc',$meta_desc)
         ->with('meta_keywords',$meta_keywords)

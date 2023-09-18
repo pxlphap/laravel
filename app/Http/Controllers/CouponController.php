@@ -43,7 +43,6 @@ class CouponController extends Controller
         return view('admin.coupon.add_coupon');
     }
     public function all_coupon() {
-        $this->AuthLogin();
         $coupon = Coupon::orderBy('coupon_id','DESC')->get();
         return view('admin.coupon.all_coupon')->with(compact('coupon',$coupon));
     }

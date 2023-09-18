@@ -80,9 +80,6 @@
 					<span>
 						<label><input type="checkbox" name="payment_value" value="2"> Trả tiền khi nhận hàng</label>
 					</span>
-                    <span>
-						<label><input type="checkbox" name="payment_value" value="3"> Trả bằng thẻ ghi nợ</label>
-					</span>
                     <input type="submit" class="btn btn-primary sm-10" value="Đặt hàng">
 
                 </form>

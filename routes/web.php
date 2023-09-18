@@ -15,6 +15,9 @@ use Illuminate\Support\Facades\Route;
 //Frontend
 Route::get('/','HomeController@index');
 Route::get('/trang-chu','HomeController@index');
+Route::get('/shop-information','HomeController@shop_info');
+Route::post('/tim-kiem','HomeController@search');
+Route::post('/search-customer','AdminController@searchCustomer');
 
 //Danh mục sản phẩm trang chủ
 Route::get('danh-muc/{category_id}','CategoryController@show_category_home');
@@ -68,6 +71,7 @@ Route::post('/update-product/{product_id}','ProductController@update_product');
 Route::get('/edit-product/{product_id}','ProductController@edit_product'); 
 Route::get('/remove-product/{product_id}','ProductController@remove_product'); 
 
+
 // Cart
 
 Route::post('/save-cart', 'CartController@save_cart');
@@ -94,10 +98,13 @@ Route::get('/all-coupon', 'CouponController@all_coupon');
 Route::post('/check-coupon','CartController@check_coupon');
 Route::post('/save-coupon','CouponController@save_coupon');
 
-// Login Checkout
+// Login Checkout and customer
 Route::get('/delete-fee-home', 'CheckoutController@delete_fee_home');
-Route::get('/checkout', 'CheckoutController@checkout');
+Route::get('/all-customer', 'AdminController@all_customer');
+Route::get('/all-nv', 'AdminController@all_nv');
+Route::get('/checkout/{customer_id}', 'CheckoutController@checkout');
 Route::get('/login-checkout', 'CheckoutController@login_checkout');
+Route::get('/customer/{customer_id}', 'CheckoutController@customer');
 Route::get('/logout-checkout', 'CheckoutController@logout_checkout');
 Route::get('/payment', 'CheckoutController@payment');
 Route::post('/add-customer', 'CheckoutController@add_customer');
@@ -106,6 +113,7 @@ Route::post('/save-checkout-customer', 'CheckoutController@save_checkout_custome
 Route::post('/calculate-fee', 'CheckoutController@calculate_fee');
 Route::post('/get-delivery-home', 'CheckoutController@get_delivery_home');
 Route::post('/confirm-order', 'CheckoutController@confirm_order');
+Route::post('dat-hang-thanh-cong', 'CheckoutController@done_order');
 
 // Order
 Route::post('/save-order', 'CheckoutController@save_order');
@@ -117,6 +125,7 @@ Route::get('/delete-order/{order_id}', 'CheckoutController@delete_order');
 // send mail
 
 Route::get('/contact','HomeController@contact');
+Route::get('/all-contact','AdminController@all_contact');
 Route::post('/send-mail', 'HomeController@send_mail');
 
 
@@ -134,3 +143,14 @@ Route::post('/get-delivery','DeliveryController@get_delivery');
 Route::post('/add-feeship','DeliveryController@add_feeship');
 Route::post('/fetch-feeship','DeliveryController@fetch_feeship');
 Route::post('/update-feeship','DeliveryController@update_feeship');
+
+Route::post('/search-product', 'AdminController@searchProduct');
+Route::post('/search-nv', 'AdminController@searchNV');
+Route::post('/search-order', 'AdminController@searchOrder');
+Route::get('/add-nv', 'AdminController@add_nv');
+Route::post('/save-nv', 'AdminController@save_nv');
+Route::post('/update-nv/{nv_id}','AdminController@update_nv'); 
+
+Route::get('/edit-nv/{nv_id}','AdminController@edit_nv'); 
+Route::get('/remove-nv/{nv_id}','AdminController@remove_nv');
+Route::get('/view-contact-detail/{contact_id}','AdminController@view_contact_detail');

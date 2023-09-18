@@ -13,7 +13,6 @@ html, body{
 	font-family: 'Roboto', sans-serif;
     font-size: 100%;
     overflow-x: hidden;
-    background: url(../images/bg.jpg) no-repeat 0px 0px;
 	background-size:cover;
 }
 body a{
@@ -2365,7 +2364,7 @@ ul.inbox-pagination li {
 .w3layouts-main {
     width: 30%;
     margin:5em auto;
-    background:rgba(171, 119, 157, 0.27);
+    background: rgba(77, 133, 38, 0.8);
     padding: 42px 35px;
 }
 /*--//header--*/
@@ -3148,4 +3147,10 @@ div#graph1, div#graph4, div#graph5, div#graph6, div#graph7, div#graph8, div#grap
 span.text-alert{
     width: 100%;
     text-align: center;
+}
+
+
+.input-group{
+    display: flex !important;
+    flex-direction: row !important;
 }

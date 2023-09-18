@@ -19,27 +19,28 @@
 						{{ csrf_field() }}
 						<div class="form-group">
 							<label for="exampleInputEmail1">Tên Sản Phẩm</label>
-							<input type="text" name="product_name" class="form-control" id="exampleInputEmail1" placeholder="Nhập tên Sản Phẩm">
+							<input type="text" name="product_name" class="form-control" id="exampleInputEmail1" placeholder="Nhập tên Sản Phẩm" required>
 						</div>
 						<div class="form-group">
 							<label for="exampleInputEmail1">Giá Sản Phẩm</label>
-							<input type="text" name="product_price" class="form-control" id="exampleInputEmail1" placeholder="Nhập tên Sản Phẩm">
+							<input type="text" name="product_price" class="form-control" id="exampleInputEmail1" placeholder="Nhập giá Sản Phẩm" required>
 						</div>
 						<div class="form-group">
 							<label for="exampleInputEmail1">Hình Ảnh Sản Phẩm</label>
-							<input type="file" name="product_image" class="form-control" id="exampleInputEmail1">
+							<input type="file" name="product_image" class="form-control" id="exampleInputEmail1" required>
 						</div>
 						<div class="form-group">
 							<label for="exampleInputPassword1">Mô Tả Sản Phẩm</label>
-							<textarea style="resize: none; min-height: 200px;" row="8" name="product_desc" class="form-control" id="exampleInputPassword1" placeholder="Mô tả Sản Phẩm"></textarea>
+							<textarea style="resize: none; min-height: 200px;" row="8" name="product_desc" class="form-control" id="exampleInputPassword1" placeholder="Mô tả Sản Phẩm" required></textarea>
 						</div>
 						<div class="form-group">
 							<label for="exampleInputPassword1">Nội Dung Sản Phẩm</label>
-							<textarea style="resize: none; min-height: 200px;" row="8" name="product_content" class="form-control" id="exampleInputPassword1" placeholder="Nội dung Sản Phẩm"></textarea>
+							<textarea style="resize: none; min-height: 200px;" row="8" name="product_content" class="form-control" id="exampleInputPassword1" placeholder="Nội dung Sản Phẩm" required></textarea>
 						</div>
 						<div class="form-group">
 							<label for="exampleInputPassword1">Danh Mục</label>
-							<select class="form-control input-lg m-bot15" name="product_category">
+							<select class="form-control input-lg m-bot15" name="product_category" required>
+								<option value="" disabled selected>Chọn danh mục</option>
 								@foreach($category_product as $key => $item)
 								<option value="{{$item->category_id}}">{{$item->category_name}}</option>
 								@endforeach
@@ -47,10 +48,10 @@
 						</div>
 						<div class="form-group">
 							<label for="exampleInputPassword1">Thương Hiệu</label>
-							<select class="form-control input-lg m-bot15" name="product_brand">
+							<select class="form-control input-lg m-bot15" name="product_brand" required>
+								<option value="" disabled selected>Chọn thương hiệu</option>
 								@foreach($brand_product as $key => $item)
 								<option value="{{$item->brand_id}}">{{$item->brand_name}}</option>
-								<div>{{$item->brand_id}</div>
 								@endforeach
 							</select>
 						</div>
@@ -64,10 +65,8 @@
 						<button type="submit" name="add_product" class="btn btn-info">Thêm Sản Phẩm</button>
 					</form>
 				</div>
-
 			</div>
 		</section>
-
 	</div>
 </div>
 @endsection

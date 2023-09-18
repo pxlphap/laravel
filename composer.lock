@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "c61ff82cbf0142a401a48a8161e1595a",
+    "content-hash": "e8f02ba7aab4f4547d54efecc58d10fe",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -31,7 +31,7 @@
             },
             "type": "library",
             "extra": {
-                "branch-alias": {
+                "brand-alias": {
                     "dev-master": "2.1-dev"
                 }
             },
@@ -148,7 +148,7 @@
             },
             "type": "library",
             "extra": {
-                "branch-alias": {
+                "brand-alias": {
                     "dev-main": "3.x-dev"
                 }
             },
@@ -454,7 +454,7 @@
             },
             "type": "library",
             "extra": {
-                "branch-alias": {
+                "brand-alias": {
                     "dev-master": "2.1.x-dev"
                 }
             },
@@ -521,7 +521,7 @@
             },
             "type": "library",
             "extra": {
-                "branch-alias": {
+                "brand-alias": {
                     "dev-master": "2.1-dev"
                 },
                 "laravel": {
@@ -1092,7 +1092,7 @@
             },
             "type": "library",
             "extra": {
-                "branch-alias": {
+                "brand-alias": {
                     "dev-master": "8.x-dev"
                 }
             },
@@ -1162,7 +1162,7 @@
             },
             "type": "library",
             "extra": {
-                "branch-alias": {
+                "brand-alias": {
                     "dev-master": "2.x-dev"
                 },
                 "laravel": {
@@ -1223,7 +1223,7 @@
             },
             "type": "library",
             "extra": {
-                "branch-alias": {
+                "brand-alias": {
                     "dev-master": "1.x-dev"
                 }
             },
@@ -1289,7 +1289,7 @@
             },
             "type": "library",
             "extra": {
-                "branch-alias": {
+                "brand-alias": {
                     "dev-master": "2.x-dev"
                 },
                 "laravel": {
@@ -1372,7 +1372,7 @@
             },
             "type": "library",
             "extra": {
-                "branch-alias": {
+                "brand-alias": {
                     "dev-main": "2.5-dev"
                 }
             },
@@ -1460,7 +1460,7 @@
             },
             "type": "library",
             "extra": {
-                "branch-alias": {
+                "brand-alias": {
                     "dev-main": "1.2-dev"
                 }
             },
@@ -1557,7 +1557,7 @@
             },
             "type": "library",
             "extra": {
-                "branch-alias": {
+                "brand-alias": {
                     "dev-master": "1.1-dev"
                 }
             },
@@ -1665,6 +1665,75 @@
             "time": "2023-08-05T12:09:49+00:00"
         },
         {
+            "name": "mindscms/laravelshoppingcart",
+            "version": "v2.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/mindscms/laravelshoppingcart.git",
+                "reference": "0ef2daf867c1699f23966f282db342630c3f9d00"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/mindscms/laravelshoppingcart/zipball/0ef2daf867c1699f23966f282db342630c3f9d00",
+                "reference": "0ef2daf867c1699f23966f282db342630c3f9d00",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/events": "^7|^8|^9|^10",
+                "illuminate/session": "^7|^8|^9|^10",
+                "illuminate/support": "^7|^8|^9|^10"
+            },
+            "require-dev": {
+                "mockery/mockery": "^1",
+                "orchestra/testbench": "^7",
+                "phpunit/phpunit": "^10"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Gloudemans\\Shoppingcart\\ShoppingcartServiceProvider"
+                    ],
+                    "aliases": {
+                        "Cart": "Gloudemans\\Shoppingcart\\Facades\\Cart"
+                    }
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Gloudemans\\Shoppingcart\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Rob Gloudemans",
+                    "email": "info@robgloudemans.nl"
+                },
+                {
+                    "name": "Michael V.",
+                    "email": "michael@michaelbelgium.me"
+                },
+                {
+                    "name": "Sami Mansour",
+                    "email": "mindscms@gmail.com"
+                }
+            ],
+            "description": "Laravel Shopping cart",
+            "keywords": [
+                "laravel",
+                "shoppingcart"
+            ],
+            "support": {
+                "issues": "https://github.com/mindscms/laravelshoppingcart/issues",
+                "source": "https://github.com/mindscms/laravelshoppingcart/tree/v2.1.0"
+            },
+            "time": "2023-03-07T08:56:27+00:00"
+        },
+        {
             "name": "monolog/monolog",
             "version": "2.9.1",
             "source": {
@@ -1723,7 +1792,7 @@
             },
             "type": "library",
             "extra": {
-                "branch-alias": {
+                "brand-alias": {
                     "dev-main": "2.x-dev"
                 }
             },
@@ -1805,7 +1874,7 @@
             ],
             "type": "library",
             "extra": {
-                "branch-alias": {
+                "brand-alias": {
                     "dev-3.x": "3.x-dev",
                     "dev-master": "2.x-dev"
                 },
@@ -1893,7 +1962,7 @@
             },
             "type": "library",
             "extra": {
-                "branch-alias": {
+                "brand-alias": {
                     "dev-master": "1.2-dev"
                 }
             },
@@ -1967,7 +2036,7 @@
             },
             "type": "library",
             "extra": {
-                "branch-alias": {
+                "brand-alias": {
                     "dev-master": "3.2-dev"
                 }
             },
@@ -2043,7 +2112,7 @@
             ],
             "type": "library",
             "extra": {
-                "branch-alias": {
+                "brand-alias": {
                     "dev-master": "4.9-dev"
                 }
             },
@@ -2095,7 +2164,7 @@
             },
             "type": "library",
             "extra": {
-                "branch-alias": {
+                "brand-alias": {
                     "dev-master": "3.6.x-dev"
                 }
             },
@@ -2164,7 +2233,7 @@
                     "bin-links": true,
                     "forward-command": true
                 },
-                "branch-alias": {
+                "brand-alias": {
                     "dev-master": "1.9-dev"
                 }
             },
@@ -2279,7 +2348,7 @@
             },
             "type": "library",
             "extra": {
-                "branch-alias": {
+                "brand-alias": {
                     "dev-master": "1.0.x-dev"
                 }
             },
@@ -2330,7 +2399,7 @@
             },
             "type": "library",
             "extra": {
-                "branch-alias": {
+                "brand-alias": {
                     "dev-master": "1.0.x-dev"
                 }
             },
@@ -2382,7 +2451,7 @@
             },
             "type": "library",
             "extra": {
-                "branch-alias": {
+                "brand-alias": {
                     "dev-master": "1.0.x-dev"
                 }
             },
@@ -2436,7 +2505,7 @@
             },
             "type": "library",
             "extra": {
-                "branch-alias": {
+                "brand-alias": {
                     "dev-master": "2.0.x-dev"
                 }
             },
@@ -2489,7 +2558,7 @@
             },
             "type": "library",
             "extra": {
-                "branch-alias": {
+                "brand-alias": {
                     "dev-master": "1.1.x-dev"
                 }
             },
@@ -2539,7 +2608,7 @@
             },
             "type": "library",
             "extra": {
-                "branch-alias": {
+                "brand-alias": {
                     "dev-master": "1.0.x-dev"
                 }
             },
@@ -2610,7 +2679,7 @@
             ],
             "type": "library",
             "extra": {
-                "branch-alias": {
+                "brand-alias": {
                     "dev-main": "0.11.x-dev"
                 }
             },
@@ -2838,7 +2907,7 @@
             },
             "type": "library",
             "extra": {
-                "branch-alias": {
+                "brand-alias": {
                     "dev-main": "4.x-dev"
                 },
                 "captainhook": {
@@ -2909,7 +2978,7 @@
             },
             "type": "library",
             "extra": {
-                "branch-alias": {
+                "brand-alias": {
                     "dev-master": "6.2-dev"
                 }
             },
@@ -3139,7 +3208,7 @@
             },
             "type": "library",
             "extra": {
-                "branch-alias": {
+                "brand-alias": {
                     "dev-main": "2.5-dev"
                 },
                 "thanks": {
@@ -3366,7 +3435,7 @@
             },
             "type": "library",
             "extra": {
-                "branch-alias": {
+                "brand-alias": {
                     "dev-main": "2.5-dev"
                 },
                 "thanks": {
@@ -3782,7 +3851,7 @@
             },
             "type": "library",
             "extra": {
-                "branch-alias": {
+                "brand-alias": {
                     "dev-main": "1.27-dev"
                 },
                 "thanks": {
@@ -3864,7 +3933,7 @@
             },
             "type": "library",
             "extra": {
-                "branch-alias": {
+                "brand-alias": {
                     "dev-main": "1.27-dev"
                 },
                 "thanks": {
@@ -3944,7 +4013,7 @@
             },
             "type": "library",
             "extra": {
-                "branch-alias": {
+                "brand-alias": {
                     "dev-main": "1.27-dev"
                 },
                 "thanks": {
@@ -4027,7 +4096,7 @@
             },
             "type": "library",
             "extra": {
-                "branch-alias": {
+                "brand-alias": {
                     "dev-main": "1.27-dev"
                 },
                 "thanks": {
@@ -4112,7 +4181,7 @@
             },
             "type": "library",
             "extra": {
-                "branch-alias": {
+                "brand-alias": {
                     "dev-main": "1.27-dev"
                 },
                 "thanks": {
@@ -4199,7 +4268,7 @@
             },
             "type": "library",
             "extra": {
-                "branch-alias": {
+                "brand-alias": {
                     "dev-main": "1.27-dev"
                 },
                 "thanks": {
@@ -4276,7 +4345,7 @@
             },
             "type": "library",
             "extra": {
-                "branch-alias": {
+                "brand-alias": {
                     "dev-main": "1.27-dev"
                 },
                 "thanks": {
@@ -4352,7 +4421,7 @@
             },
             "type": "library",
             "extra": {
-                "branch-alias": {
+                "brand-alias": {
                     "dev-main": "1.27-dev"
                 },
                 "thanks": {
@@ -4431,7 +4500,7 @@
             },
             "type": "library",
             "extra": {
-                "branch-alias": {
+                "brand-alias": {
                     "dev-main": "1.27-dev"
                 },
                 "thanks": {
@@ -4514,7 +4583,7 @@
             },
             "type": "library",
             "extra": {
-                "branch-alias": {
+                "brand-alias": {
                     "dev-main": "1.27-dev"
                 },
                 "thanks": {
@@ -4753,7 +4822,7 @@
             },
             "type": "library",
             "extra": {
-                "branch-alias": {
+                "brand-alias": {
                     "dev-main": "2.5-dev"
                 },
                 "thanks": {
@@ -5014,7 +5083,7 @@
             },
             "type": "library",
             "extra": {
-                "branch-alias": {
+                "brand-alias": {
                     "dev-main": "2.5-dev"
                 },
                 "thanks": {
@@ -5184,7 +5253,7 @@
             },
             "type": "library",
             "extra": {
-                "branch-alias": {
+                "brand-alias": {
                     "dev-master": "2.2.x-dev"
                 }
             },
@@ -5249,7 +5318,7 @@
                     "bin-links": true,
                     "forward-command": true
                 },
-                "branch-alias": {
+                "brand-alias": {
                     "dev-master": "5.5-dev"
                 }
             },
@@ -5397,7 +5466,7 @@
             },
             "type": "library",
             "extra": {
-                "branch-alias": {
+                "brand-alias": {
                     "dev-master": "1.10-dev"
                 }
             },
@@ -5529,7 +5598,7 @@
             },
             "type": "library",
             "extra": {
-                "branch-alias": {
+                "brand-alias": {
                     "dev-master": "1.0-dev"
                 }
             },
@@ -5603,7 +5672,7 @@
             },
             "type": "library",
             "extra": {
-                "branch-alias": {
+                "brand-alias": {
                     "dev-master": "2.x-dev"
                 },
                 "laravel": {
@@ -5734,7 +5803,7 @@
             },
             "type": "library",
             "extra": {
-                "branch-alias": {
+                "brand-alias": {
                     "dev-main": "v1.21-dev"
                 }
             },
@@ -5793,7 +5862,7 @@
             },
             "type": "library",
             "extra": {
-                "branch-alias": {
+                "brand-alias": {
                     "dev-master": "2.7-dev"
                 }
             },
@@ -5863,7 +5932,7 @@
             },
             "type": "library",
             "extra": {
-                "branch-alias": {
+                "brand-alias": {
                     "dev-master": "2.1-dev"
                 }
             },
@@ -5911,7 +5980,7 @@
             ],
             "type": "library",
             "extra": {
-                "branch-alias": {
+                "brand-alias": {
                     "dev-master": "1.x-dev"
                 },
                 "laravel": {
@@ -6200,7 +6269,7 @@
             },
             "type": "library",
             "extra": {
-                "branch-alias": {
+                "brand-alias": {
                     "dev-master": "2.0.x-dev"
                 }
             },
@@ -6322,11 +6391,11 @@
             },
             "suggest": {
                 "ext-pcov": "PHP extension that provides line coverage",
-                "ext-xdebug": "PHP extension that provides line coverage as well as branch and path coverage"
+                "ext-xdebug": "PHP extension that provides line coverage as well as brand and path coverage"
             },
             "type": "library",
             "extra": {
-                "branch-alias": {
+                "brand-alias": {
                     "dev-master": "9.2-dev"
                 }
             },
@@ -6388,7 +6457,7 @@
             },
             "type": "library",
             "extra": {
-                "branch-alias": {
+                "brand-alias": {
                     "dev-master": "3.0-dev"
                 }
             },
@@ -6452,7 +6521,7 @@
             },
             "type": "library",
             "extra": {
-                "branch-alias": {
+                "brand-alias": {
                     "dev-master": "3.1-dev"
                 }
             },
@@ -6511,7 +6580,7 @@
             },
             "type": "library",
             "extra": {
-                "branch-alias": {
+                "brand-alias": {
                     "dev-master": "2.0-dev"
                 }
             },
@@ -6570,7 +6639,7 @@
             },
             "type": "library",
             "extra": {
-                "branch-alias": {
+                "brand-alias": {
                     "dev-master": "5.0-dev"
                 }
             },
@@ -6652,14 +6721,14 @@
             },
             "suggest": {
                 "ext-soap": "To be able to generate mocks based on WSDL files",
-                "ext-xdebug": "PHP extension that provides line coverage as well as branch and path coverage"
+                "ext-xdebug": "PHP extension that provides line coverage as well as brand and path coverage"
             },
             "bin": [
                 "phpunit"
             ],
             "type": "library",
             "extra": {
-                "branch-alias": {
+                "brand-alias": {
                     "dev-master": "9.6-dev"
                 }
             },
@@ -6732,7 +6801,7 @@
             },
             "type": "library",
             "extra": {
-                "branch-alias": {
+                "brand-alias": {
                     "dev-master": "1.0-dev"
                 }
             },
@@ -6788,7 +6857,7 @@
             },
             "type": "library",
             "extra": {
-                "branch-alias": {
+                "brand-alias": {
                     "dev-master": "1.0-dev"
                 }
             },
@@ -6844,7 +6913,7 @@
             },
             "type": "library",
             "extra": {
-                "branch-alias": {
+                "brand-alias": {
                     "dev-master": "2.0-dev"
                 }
             },
@@ -6901,7 +6970,7 @@
             },
             "type": "library",
             "extra": {
-                "branch-alias": {
+                "brand-alias": {
                     "dev-master": "4.0-dev"
                 }
             },
@@ -6974,7 +7043,7 @@
             },
             "type": "library",
             "extra": {
-                "branch-alias": {
+                "brand-alias": {
                     "dev-master": "2.0-dev"
                 }
             },
@@ -7031,7 +7100,7 @@
             },
             "type": "library",
             "extra": {
-                "branch-alias": {
+                "brand-alias": {
                     "dev-master": "4.0-dev"
                 }
             },
@@ -7099,7 +7168,7 @@
             },
             "type": "library",
             "extra": {
-                "branch-alias": {
+                "brand-alias": {
                     "dev-master": "5.1-dev"
                 }
             },
@@ -7161,7 +7230,7 @@
             },
             "type": "library",
             "extra": {
-                "branch-alias": {
+                "brand-alias": {
                     "dev-master": "4.0-dev"
                 }
             },
@@ -7242,7 +7311,7 @@
             },
             "type": "library",
             "extra": {
-                "branch-alias": {
+                "brand-alias": {
                     "dev-master": "5.0-dev"
                 }
             },
@@ -7301,7 +7370,7 @@
             },
             "type": "library",
             "extra": {
-                "branch-alias": {
+                "brand-alias": {
                     "dev-master": "1.0-dev"
                 }
             },
@@ -7359,7 +7428,7 @@
             },
             "type": "library",
             "extra": {
-                "branch-alias": {
+                "brand-alias": {
                     "dev-master": "4.0-dev"
                 }
             },
@@ -7414,7 +7483,7 @@
             },
             "type": "library",
             "extra": {
-                "branch-alias": {
+                "brand-alias": {
                     "dev-master": "2.0-dev"
                 }
             },
@@ -7469,7 +7538,7 @@
             },
             "type": "library",
             "extra": {
-                "branch-alias": {
+                "brand-alias": {
                     "dev-master": "4.0-dev"
                 }
             },
@@ -7532,7 +7601,7 @@
             },
             "type": "library",
             "extra": {
-                "branch-alias": {
+                "brand-alias": {
                     "dev-master": "3.0-dev"
                 }
             },
@@ -7587,7 +7656,7 @@
             },
             "type": "library",
             "extra": {
-                "branch-alias": {
+                "brand-alias": {
                     "dev-master": "3.2-dev"
                 }
             },
@@ -7640,7 +7709,7 @@
             },
             "type": "library",
             "extra": {
-                "branch-alias": {
+                "brand-alias": {
                     "dev-master": "3.0-dev"
                 }
             },

@@ -243,8 +243,6 @@
                             <b class="caret"></b>
                         </a>
                         <ul class="dropdown-menu extended logout">
-                            <li><a href="#"><i class=" fa fa-suitcase"></i>Profile</a></li>
-                            <li><a href="#"><i class="fa fa-cog"></i> Cài đặt</a></li>
                             <li><a href="{{URL::to('/login')}}"><i class="fa fa-key"></i> Đăng Xuất</a></li>
                         </ul>
                     </li>
@@ -298,18 +296,31 @@
                             </ul>
                         </li>
                         <li class="sub-menu">
-                            <a href="javascript:;">
+                            <a href="{{URL::to('/manage-order')}}">
                                 <i class="fa fa-pencil"></i>
-                                <span>Đơn hàng</span>
+                                <span>Quản lý đơn hàng</span>
                             </a>
-                            <ul class="sub">
-                                <li><a href="{{URL::to('/manage-order')}}">Quản lý đơn hàng</a></li>
-                            </ul>
                         </li>
                         <li class="sub-menu">
                             <a href="javascript:;">
                                 <i class="fa fa-pencil"></i>
-                                <span>Mã giảm giá</span>
+                                <span>Nhân Viên</span>
+                            </a>
+                            <ul class="sub">
+                                <li><a href="{{URL::to('/add-nv')}}">Thêm</a></li>
+                                <li><a href="{{URL::to('/all-nv')}}">Liệt Kê</a></li>
+                            </ul>
+                        </li>
+                        <li class="sub-menu">
+                            <a href="{{URL::to('/all-customer')}}">
+                                <i class="fa fa-pencil"></i>
+                                <span>Danh sách khách hàng</span>
+                            </a>
+                        </li>
+                        <li class="sub-menu">
+                            <a href="javascript:;">
+                                <i class="fa fa-pencil"></i>
+                                Mã giảm giá
                             </a>
                             <ul class="sub">
                                 <li><a href="{{URL::to('/add-coupon')}}">Thêm Mã giảm giá</a></li>
@@ -317,13 +328,10 @@
                             </ul>
                         </li>
                         <li class="sub-menu">
-                            <a href="javascript:;">
+                            <a href="{{URL::to('/all-contact')}}">
                                 <i class="fa fa-pencil"></i>
-                                <span>Vận chuyển</span>
+                                <span>Danh sách liên hệ</span>
                             </a>
-                            <ul class="sub">
-                                <li><a href="{{URL::to('/delivery')}}">Quản lý giá vận chuyển</a></li>
-                            </ul>
                         </li>
                     </ul>            
                 </div>
@@ -337,11 +345,7 @@
                 @yield('admin_content')
             </section>
             <!-- footer -->
-            <div class="footer">
-                <div class="wthree-copyright">
-                    <p>© 2023 Design by <a href="http://w3layouts.com">BravisThemes</a></p>
-                </div>
-            </div>
+           
             <!-- / footer -->
         </section>
         <!--main content end-->

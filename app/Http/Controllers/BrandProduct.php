@@ -11,7 +11,7 @@ session_start();
 
 class BrandProduct extends Controller
 {
-   public function add_brand(){
+    public function add_brand(){
         return view('admin.add_brand');
     }
     public function all_brand(){
