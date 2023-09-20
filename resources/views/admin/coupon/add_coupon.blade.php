@@ -1,4 +1,4 @@
-@extends('admin_layout')
+@extends('admin.dashboard')
 @section('admin_content')
 <div class="form-w3layouts">
 <div class="row">

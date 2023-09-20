@@ -21,7 +21,7 @@
                     <label>Số lượng:</label>
                     <input name="productID" type="hidden" value="{{ $value->product_id }}"/>
                     <input name="quanlity" type="number" value="1" min="1"/>
-                    <button type="submit" class="btn btn-fefault cart">
+                    <button type="submit" class="btn btn-fefault cart add-to-cart-button">
                         <i class="fa fa-shopping-cart"></i>
                         Thêm vào giỏ hàng
                     </button>

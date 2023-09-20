@@ -4,21 +4,14 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Coupon;
-use Illuminate\Support\Facades\Redirect; // dùng để chuyển hướng
-use Session; // dùng để  lưu tạm các message sau khi thực hiện một công việc gì đó.
-use App\Http\Requests; // dùng để lấy dữ liệu từ form
+use Illuminate\Support\Facades\Redirect; 
+use Session;
+use App\Http\Requests; 
+use Cart;
 session_start();
 
 class CouponController extends Controller
 {
-    public function AuthLogin() {
-        
-        if(Session::get('admin_id') != null) {
-            return Redirect::to('admin.dashboard');
-        } else {
-            return Redirect::to('login')->send();
-        }
-    }
     public function unset_coupon() {
         $coupon = Session::get('coupon');
         if($coupon) {
@@ -27,7 +20,6 @@ class CouponController extends Controller
         }
     }
     public function add_coupon() {
-        $this->AuthLogin();
         return view('admin.coupon.add_coupon');
     }
     public function save_coupon(Request $request) {

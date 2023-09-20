@@ -25,23 +25,6 @@
                             <i class="fa fa-shopping-cart"></i>
                             Thêm vào giỏ hàng
                         </button>
-                        <script>
-                            $(document).ready(function () {
-                                $('.add-to-cart-button').click(function () {
-                                    var productId = $(this).data('product-id');
-                                    var quantity = $(this).data('quantity');
-
-                                    $.ajax({
-                                        type: "POST",
-                                        url: "/save-cart",
-                                        data: {productID: productId, quanlity: quantity},
-                                        success: function (response) {
-                                            alert(response.message);
-                                        }
-                                    });
-                                });
-                            });
-                        </script>
                     </form>
                 </div>
             </div>

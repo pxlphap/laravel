@@ -40,7 +40,7 @@ class CartController extends Controller
     public function view_cart(Request $request) {
         $meta_title = "Thông tin giỏ hàng";
         $meta_desc = "Trang Thông tin giỏ hàng của bạn";
-        $meta_keywords = "giỏ hàng xwatch247, xwatch247 cart";
+        $meta_keywords = "giỏ hàng , cart";
         $meta_canonical = $request->url();
         $image_og = "";
         
