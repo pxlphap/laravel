@@ -61,6 +61,8 @@ Route::get('/remove-brand-product/{brand_id}','BrandProduct@remove_brand_product
 //Product
 Route::get('/add-product', 'ProductController@add_product');
 Route::get('/all-product', 'ProductController@all_product');
+Route::get('/thong-ke-doanh-thu', 'ProductController@all_product');
+Route::get('/thong-ke-san-pham', 'ProductController@thong_ke_san_pham');
 
 Route::get('/active-product/{product_id}', 'ProductController@active_product');
 Route::get('/deactive-product/{product_id}', 'ProductController@deactive_product');
@@ -120,8 +122,14 @@ Route::post('/save-order', 'CheckoutController@save_order');
 Route::get('/manage-order', 'CheckoutController@manage_order');
 
 Route::get('/view-order-detail/{order_id}', 'CheckoutController@view_order_detail');
+Route::get('/view-order-detail-customer/{order_id}', 'CheckoutController@view_order_detail_customer');
+Route::get('/order-done/{order_id}', 'CheckoutController@order_done');
+Route::get('/order-done-customer/{order_id}', 'CheckoutController@order_done_customer');
+Route::get('/order-question/{order_id}', 'CheckoutController@order_question');
+Route::get('/order-truck/{order_id}', 'CheckoutController@order_truck');
+Route::get('/cancel-order/{order_id}', 'CheckoutController@order_cancel');
+Route::get('/cancel-order-customer/{order_id}', 'CheckoutController@order_cancel_customer');
 Route::get('/delete-order/{order_id}', 'CheckoutController@delete_order');
-
 // send mail
 
 Route::get('/contact','HomeController@contact');
@@ -154,3 +162,4 @@ Route::post('/update-nv/{nv_id}','AdminController@update_nv');
 Route::get('/edit-nv/{nv_id}','AdminController@edit_nv'); 
 Route::get('/remove-nv/{nv_id}','AdminController@remove_nv');
 Route::get('/view-contact-detail/{contact_id}','AdminController@view_contact_detail');
+Route::post('/checkc', 'CouponController@checkc');

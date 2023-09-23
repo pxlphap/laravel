@@ -11,23 +11,31 @@
         <div class="product-information"><!--/product-information-->
             <h2>{{$value->product_name}}</h2>
             <p>Mã sản phẩm: {{$value->product_id}}</p>
-            <img src="{{URL::to('public/frontend/images/product-details/rating.png')}}" alt="" />
-            <form action="{{URL::to('/save-cart')}}" method="POST">
+            <form id="cart-form" action="{{ URL::to('/save-cart') }}" method="POST">
                 {{ csrf_field() }}
                 <span>
-                    <span>{{number_format($value->product_price).' VND'}}</span>
+                    <span>{{ number_format($value->product_price).' VND' }}</span>
                 </span>
                 <span class="soluong">
                     <label>Số lượng:</label>
-                    <input name="productID" type="hidden" value="{{ $value->product_id }}"/>
-                    <input name="quanlity" type="number" value="1" min="1"/>
-                    <button type="submit" class="btn btn-fefault cart add-to-cart-button">
+                    <input name="productID" type="hidden" value="{{ $value->product_id }}" />
+                    <input name="quanlity" type="number" value="1" min="1" />
+                    <button type="submit" class="btn btn-fefault cart" id=" add-to-cart-button">
                         <i class="fa fa-shopping-cart"></i>
                         Thêm vào giỏ hàng
                     </button>
                 </span>
             </form>
-            <p><b>Trạng thái:</b> Còn hàng</p>
+
+            <p><b>Trạng thái:</b> 
+                <?php if($value->product_status == 1){
+                    echo 'còn hàng';
+                } 
+                else{
+                    echo 'hết hàng';
+                }
+                ?>
+            </p>
             <p><b>Danh mục:</b> {{$value->category_name}}</p>
             <p><b>Xuất xứ:</b> {{$value->brand_name}}</p>
             <div class="fb-share-button" 
@@ -52,7 +60,6 @@
         <ul class="nav nav-tabs">
             <li class="active"><a href="#details" data-toggle="tab">Mô tả sản phẩm</a></li>
             <li><a href="#companyprofile" data-toggle="tab">Chi tiết sản phẩm</a></li>
-            <li><a href="#reviews" data-toggle="tab">Đánh giá (5)</a></li>
         </ul>
     </div>
     <div class="tab-content">
@@ -88,7 +95,6 @@
                         <input type="email" placeholder="Email Address"/>
                     </span>
                     <textarea name="" ></textarea>
-                    <b>Rating: </b> <img src="{{URL::to('public/frontend/images/product-details/rating.png')}}" alt="" />
                     <button type="button" class="btn btn-default pull-right">
                         Submit
                     </button>
@@ -106,9 +112,9 @@
     
     <div id="recommended-item-carousel" class="carousel slide" data-ride="carousel">
         <div class="carousel-inner">
-
+            @foreach($related_product as $key => $value)
             <div class="item_active">
-                @foreach($related_product as $key => $value)
+                
                 <div class="col-sm-4">
                     <div class="product-image-wrapper">
                         <a href="{{URL::to('/chi-tiet-san-pham/'.$value->product_id)}}">
@@ -124,17 +130,12 @@
                         </a>
                     </div>
                 </div>
-                @endforeach
+                
             </div>
-
+            @endforeach
             
         </div>
-        <a class="left recommended-item-control" href="#recommended-item-carousel" data-slide="prev">
-            <i class="fa fa-angle-left"></i>
-        </a>
-        <a class="right recommended-item-control" href="#recommended-item-carousel" data-slide="next">
-            <i class="fa fa-angle-right"></i>
-        </a>			
+        
     </div>
 </div><!--/recommended_items-->
 

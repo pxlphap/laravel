@@ -12,6 +12,11 @@
         <div class="single-products">
                 <div class="productinfo text-center">
                     <img src="{{URL::to('public/upload/product/'.$item->product_image)}}" alt="" />
+                     @if($item->quantity > 0)
+                    <h4 class="product_status" style="margin-top: 20px;">Còn hàng ({{$item->quantity}})</h4>
+                    @else
+                    <h4 class="product_status" style="margin-top: 20px;">Hết hàng</h4>
+                    @endif
                     <h2>{{number_format($item->product_price)." đ"}}</h2>
                     <p>{{$item->product_name}}</p>
                     <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Thêm vào giỏ hàng</a>
@@ -19,12 +24,6 @@
                 
         </div>
         </a>
-        <div class="choose">
-            <ul class="nav nav-pills nav-justified">
-                <li><a href="#"><i class="fa fa-plus-square"></i>Yêu thích</a></li>
-                <li><a href="#"><i class="fa fa-plus-square"></i>Thêm so sánh</a></li>
-            </ul>
-        </div>
         
     </div>
 </div>

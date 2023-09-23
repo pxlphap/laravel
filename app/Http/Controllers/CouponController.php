@@ -44,4 +44,27 @@ class CouponController extends Controller
         Session::put('message','Xóa mã giảm giá thành công');
         return Redirect::to('/all-coupon');
     }
+
+    public function checkc(Request $request)
+{
+    $couponCode = $request->coupon;
+    $coupon = Coupon::where('coupon_code', $couponCode)->first();
+    if ($coupon) {
+        if ($coupon->coupon_time > 0) {
+            $value = $coupon->coupon_number;
+            if ($coupon->coupon_condition == "1") {
+                $discountValue = $value / 100 * floatval(Cart::total(0)); // Tính giá trị giảm giá dưới dạng phần trăm
+                $response = "Mã giảm giá hợp lệ, bạn được giảm " . $discountValue . " VND";
+            } else {
+                $response = "Mã giảm giá hợp lệ, bạn được giảm " . $value . " VND";
+            }
+        } else {
+            $response = "Hết mã giảm giá";
+        }
+    } else {
+        $response = "Mã giảm giá không tồn tại";
+    }
+    return $response;
+}
+
 }

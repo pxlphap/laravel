@@ -62,7 +62,7 @@ class AdminController extends Controller
 		->join('tbl_customers','tbl_order.customer_id','=','tbl_customers.customer_id')
 		->where('order_id', 'like', '%' . $searchContent . '%')
 		->get();
-
+		
 		return view('admin.manage_order', ['all_order' => $searchResult]);
 	}
 	public function add_nv(){

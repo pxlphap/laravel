@@ -10,13 +10,6 @@
 			</div>
 			<div class="col-sm-4">
 			</div>
-			<div class="col-sm-3">
-				<form action="{{URL::to('/search-contact')}}" method="POST" class="input-group">
-					{{ csrf_field() }}
-					<input type="text" class="input-sm form-control" placeholder="Search" name="search_content">
-					<input type="submit" class="btn btn-default" value="Go!" name="search">
-				</form>
-			</div>
 		</div>
 		<div class="table-responsive">
 			<?php 
@@ -34,7 +27,7 @@
 						<th>Email</th>
 						<th>Tiêu đề</th>
 						<th>Nội dung</th>
-						<th>Tùy chọn</th>
+						
 					</tr>
 				</thead>
 				<tbody>
@@ -45,11 +38,6 @@
 						<td>{{ $item->contact_email }}</td>
 						<td>{{ $item->contact_title }}</td>
 						<td>{{ $item->contact_content }}</td>
-						<td>
-							<a href="{{URL::to('/view-contact-detail/'.$item->contact_id)}}" class="active styling-edit" ui-toggle-class="">
-								<i class="fa fa-eye text-success text-active"></i>
-							</a>
-						</td>
 					</tr>
 					@endforeach
 				</tbody>

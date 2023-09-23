@@ -27,6 +27,17 @@ class ProductController extends Controller
 
         return view('admin.dashboard', ['admin.all_product' => $manager_product]);
     }
+    public function thong_ke_san_pham(){
+        $all_product = DB::table('tbl_product')
+        ->join('tbl_category_product', 'tbl_category_product.category_id', '=', 'tbl_product.category_id')
+        ->join('tbl_brand', 'tbl_brand.brand_id', '=', 'tbl_product.brand_id') 
+        ->orderBy('tbl_product.product_id', 'desc')
+        ->get();
+        
+        $manager_product = view('admin.statistical_product')->with('all_product', $all_product);
+
+        return view('admin.dashboard', ['admin.statistical_product' => $manager_product]);
+    }
    
     public function save_product(Request $request){
         $data = array();
@@ -89,6 +100,7 @@ class ProductController extends Controller
         $data = array();
         $data['product_name'] = $request->product_name;
         $data['product_price'] = $request->product_price;
+        $data['quantity'] = $request->product_quanlity;
         $data['product_desc'] = $request->product_desc;
         $data['product_content'] = $request->product_content;
         $data['category_id'] = $request->product_category;
@@ -131,7 +143,7 @@ class ProductController extends Controller
          $related_product = DB::table('tbl_product')
             ->join('tbl_category_product', 'tbl_category_product.category_id', '=', 'tbl_product.category_id')
             ->join('tbl_brand', 'tbl_brand.brand_id', '=', 'tbl_product.brand_id')
-            ->where('tbl_product.category_id', $category_id)->whereNotIn('tbl_product.product_id',[$product_id])->get();
+            ->where('tbl_product.category_id', $category_id)->whereNotIn('tbl_product.product_id',[$product_id])->take(3)->get();
 
         return view('pages.product.detail-product', compact('category', 'brand', 'detail_product', 'related_product'));
     }

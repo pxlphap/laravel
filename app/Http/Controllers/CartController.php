@@ -35,7 +35,6 @@ class CartController extends Controller
         $data['price'] = $product->product_price;
         $data['options']['image'] = $product->product_image;
         Cart::add($data);
-        return back();
     }
     public function view_cart(Request $request) {
         $meta_title = "Thông tin giỏ hàng";

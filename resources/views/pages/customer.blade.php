@@ -13,7 +13,7 @@
 			</div>
 		</div>
 	</div>
-	<h2 class="title" style="margin-top: 50px;">Giỏ hàng của bạn</h2>
+	<h2 class="title text-center" style="margin-top: 50px;">Giỏ hàng của bạn</h2>
 	<div class="table-responsive cart_info">
 		<table class="table table-condensed">
 			<thead>
@@ -23,7 +23,6 @@
 					<td class="price">Giá sản phẩm</td>
 					<td class="quantity">Số lượng</td>
 					<td class="total">Thành tiền</td>
-					<td></td>
 				</tr>
 			</thead>
 			<tbody>
@@ -63,7 +62,49 @@
 					<td class="cart_delete">
 						<a class="cart_quantity_delete" href="{{URL::to('/delete-to-cart/'.$cart_item->rowId)}}"><i class="fa fa-times"></i></a>
 					</td>
+				</tr>
+				@endforeach
+			</tbody>
+		</table>
+	</div>
 
+	<h2 class="title text-center" style="margin-top: 50px;">Đơn hàng của bạn</h2>
+	<div class="table-responsive cart_info">
+		<table class="table table-condensed">
+			<thead>
+				<tr class="cart_menu">
+					<td class="image">Mã đơn</td>
+					<td class="price">Giá trị đơn hàng</td>
+					<td class="quantity">Trạng thái đơn hàng</td>
+					<td class="total">Tuỳ chọn</td>
+				</tr>
+			</thead>
+			<tbody>
+				@foreach($orders as $order)
+				<tr>
+					<td class="cart_description">
+						<p>{{ $order->order_id }}</p>
+					</td>
+					<td class="cart_price">
+						<p>{{ $order->order_total }}</p>
+					</td>
+					<td class="cart_quantity">
+						<p>{{ $order->payment_status }}</p>
+					</td>
+					<td class="option">
+						<a href="{{URL::to('/view-order-detail-customer/'.$order->order_id)}}" class="active styling-edit" ui-toggle-class="">
+							<i class="fa fa-eye text-success text-active"></i>
+						</a>
+						&nbsp;
+						<a onclick="return confirm('Đánh dấu đơn hàng đã giao?')" href="{{URL::to('/order-done-customer/'.$order->order_id)}}" class="active styling-edit" ui-toggle-class="">
+							<i class="fa fa-check text-success text-active"></i>
+						</a>
+						&nbsp; 
+						<a onclick="return confirm('Bạn có chắc là muốn huỷ đơn này không?')" href="{{URL::to('/cancel-order-customer/'.$order->order_id)}}" class="active styling-edit" ui-toggle-class="">
+							<i class="fa fa-times text-danger text"></i>
+						</a>
+						&nbsp;
+					</td>
 				</tr>
 				@endforeach
 			</tbody>

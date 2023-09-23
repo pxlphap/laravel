@@ -35,11 +35,10 @@
     <div class="contact-info">
         <h2 class="title text-center">Thông tin shop</h2>
         <address>
-            <p>Fruit 247</p>
-            <p>Tân Thịnh</p>
+            <p>HoaMart</p>
             <p>Thái Nguyên VN</p>
             <p>Mobile: +84 383 848 623</p>
-            <p>Email: pxlphap@gmail.com</p>
+            <p>Email: hoamart@gmail.com</p>
         </address>
         <div class="social-networks">
             <h2 class="title text-center">Mạng xã hội</h2>

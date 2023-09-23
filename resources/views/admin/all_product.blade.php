@@ -33,6 +33,7 @@
 					<tr>
 						<th>Tên Sản Phẩm</th>
 						<th>Giá</th>
+						<th>Số lượng</th>
 						<th>Mô tả</th>
 						<th>Nội dung</th>
 						<th>Danh mục</th>
@@ -47,6 +48,7 @@
 					<tr>
 						<td>{{ $item->product_name }}</td>
 						<td>{{ $item->product_price }}</td>
+						<td>{{ $item->quantity}}</td>
 						<td>{{ $item->product_desc }}</td>
 						<td>{{ $item->product_content }}</td>
 						<td>{{ $item->category_name }}</td>
