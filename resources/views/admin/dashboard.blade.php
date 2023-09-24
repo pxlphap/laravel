@@ -34,7 +34,7 @@
             <!--logo start-->
             <div class="brand">
                 <a href="{{URL::to('/trang-chu')}}" class="logo">
-                    Admin
+                    Quản Trị
                 </a>
                 <div class="sidebar-toggle-box">
                     <div class="fa fa-bars"></div>

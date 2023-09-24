@@ -60,7 +60,7 @@
     <span style="margin: 15px 10px;
     display: inline-block;
     color: red;"><b>Ghi chú đơn hàng:</b> {{$order_by_id->shipping_note}}</span>
-     <br><span style="margin: 15px 10px;
+     <br><span style="margin: 15px 10px 0;
     display: inline-block;
     color: red;"><b>Mã giảm giá:</b> {{$coupon_info->coupon_name}}</span>
   </div>

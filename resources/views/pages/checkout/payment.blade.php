@@ -74,10 +74,10 @@
 		<form action="{{ URL::to('save-order') }}" method="POST" id="order-form">
 			{{ csrf_field() }}
 			<span>
-				<label><input type="checkbox" name="payment_value" value="1"> Trả trước bằng thẻ ATM</label>
+				<label><input type="radio" name="payment_value" value="1" checked> Trả trước bằng thẻ ATM</label>
 			</span>
 			<span>
-				<label><input type="checkbox" name="payment_value" value="2"> Trả tiền khi nhận hàng</label>
+				<label><input type="radio" name="payment_value" value="2"> Trả tiền khi nhận hàng</label>
 			</span>
 			<span>
 				<label for="">Nhập mã giảm giá 

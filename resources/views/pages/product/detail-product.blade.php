@@ -28,7 +28,7 @@
             </form>
 
             <p><b>Trạng thái:</b> 
-                <?php if($value->product_status == 1){
+                <?php if($value->quantity > 1){
                     echo 'còn hàng';
                 } 
                 else{

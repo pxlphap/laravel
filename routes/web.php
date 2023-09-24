@@ -61,7 +61,8 @@ Route::get('/remove-brand-product/{brand_id}','BrandProduct@remove_brand_product
 //Product
 Route::get('/add-product', 'ProductController@add_product');
 Route::get('/all-product', 'ProductController@all_product');
-Route::get('/thong-ke-doanh-thu', 'ProductController@all_product');
+Route::get('/thong-ke-doanh-thu', 'AdminController@thong_ke_doanh_thu');
+Route::post('/search-thong-ke-doanh-thu', 'AdminController@search_thong_ke_doanh_thu');
 Route::get('/thong-ke-san-pham', 'ProductController@thong_ke_san_pham');
 
 Route::get('/active-product/{product_id}', 'ProductController@active_product');

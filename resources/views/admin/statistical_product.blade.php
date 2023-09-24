@@ -11,14 +11,6 @@
 			</div>
 			<div class="col-sm-4">
 			</div>
-			<div class="col-sm-3">
-				<form action="{{URL::to('/search-product')}}" method="POST" class="input-group">
-					{{ csrf_field() }}
-					<input type="text" class="input-sm form-control" placeholder="Search" name="search_content">
-					<input type="submit" class="btn btn-default" value="Go!" name="search">
-				</form>
-
-			</div>
 		</div>
 		<div class="table-responsive">
 			<?php 

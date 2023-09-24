@@ -34,6 +34,59 @@ class AdminController extends Controller
 
 		return view('admin.view_customer', ['all_customer' => $searchResult]);
 	}
+
+	public function thong_ke_doanh_thu() {
+
+		$all_order = DB::table('tbl_order')
+		->join('tbl_customers', 'tbl_order.customer_id', '=', 'tbl_customers.customer_id')
+		->join('tbl_payment', 'tbl_order.payment_id', '=', 'tbl_payment.payment_id')
+		->select('tbl_order.order_id', 'tbl_customers.customer_name', 'tbl_order.order_total', 'tbl_payment.payment_status', 'tbl_order.coupon_id') 
+		->orderBy('tbl_order.order_id', 'desc')
+		->where('tbl_payment.payment_status', '=', 'Đã giao')
+		->get();
+		$totalSale = $this->calculateTotalSale($all_order);
+		return view('admin.statistical_sales')->with('all_order', $all_order)->with('totalSale', $totalSale);
+	}
+	public function calculateTotalSale($searchResult) {
+		$totalSale = 0;
+
+		foreach ($searchResult as $order) {
+			$totalSale += $order->order_total;
+		}
+
+		return $totalSale;
+	}
+	public function search_thong_ke_doanh_thu(Request $request) {
+		$search_start = $request->input('search_start');
+		$search_end = $request->input('search_end');
+
+		$startDateTime = \DateTime::createFromFormat('Y-m-d', $search_start);
+		$endDateTime = \DateTime::createFromFormat('Y-m-d', $search_end);
+
+		if (!$startDateTime || !$endDateTime) {
+			return redirect()->back()->with('error', 'Invalid date format');
+		}
+
+		$startDate = $startDateTime->format('Y-m-d');
+		$endDate = $endDateTime->format('Y-m-d');
+
+		$searchResult = DB::table('tbl_order')
+		->join('tbl_customers', 'tbl_order.customer_id', '=', 'tbl_customers.customer_id')
+		->join('tbl_payment', 'tbl_order.payment_id', '=', 'tbl_payment.payment_id')
+		->select('tbl_order.order_id', 'tbl_customers.customer_name', 'tbl_order.order_total', 'tbl_payment.payment_status', 'tbl_order.coupon_id') 
+		->orderBy('tbl_order.order_id', 'desc')
+		->whereDate('tbl_order.created_at', '>=', $startDate)
+		->whereDate('tbl_order.created_at', '<=', $endDate)
+		->where('tbl_payment.payment_status', '=', 'Đã giao')
+		->get();
+
+		$totalSale = $this->calculateTotalSale($searchResult);
+
+		return view('admin.statistical_sales', ['all_order' => $searchResult, 'totalSale' => $totalSale]);
+	}
+
+
+
 	public function searchProduct(Request $request) {
 		$searchContent = $request->input('search_content');
 

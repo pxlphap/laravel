@@ -56,7 +56,7 @@
       </table>
       
     </div>
-    <span style="margin: 15px 10px;
+    <span style="margin: 15px 10px 0;
     display: inline-block;
     color: red;"><b>Ghi chú đơn hàng:</b> {{$order_by_id->shipping_note}}</span>
       <br><span style="margin: 15px 10px;
